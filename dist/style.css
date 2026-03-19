@@ -275,6 +275,9 @@
   .inline-flex {
     display: inline-flex;
   }
+  .w-10 {
+    width: calc(var(--spacing) * 10);
+  }
   .max-w-3xl {
     max-width: var(--container-3xl);
   }
@@ -786,6 +789,17 @@ body {
 }
 .streak-badge {
   animation: pulse-ring 2s ease infinite;
+}
+@keyframes bg-pulse {
+  0%,100% {
+    box-shadow: 0 0 0 0   #00B396;
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(245,166,35,0);
+  }
+}
+.btn-bg {
+  animation: bg-pulse 2s ease infinite;
 }
 @keyframes fadeUp {
   from {

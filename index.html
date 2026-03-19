@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>English HunT with Manik Sir</title>
 
-  <!--
-    ✅ dist/style.css — PostCSS build output
-    npm install চালাও, তারপর npm run dev বা npm run build
-  -->
+  <!-- output CSS -->
+
   <link rel="stylesheet" href="dist/style.css" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Hind+Siliguri:wght@400;600&display=swap"
+    rel="stylesheet" />
 </head>
 
 <body class="antialiased">
@@ -26,18 +27,17 @@
   <header class="sticky top-0 z-50 py-4 px-4">
     <div class="max-w-5xl mx-auto bg-[#131626] border border-[#1e2235]
                 rounded-full px-5 py-3 flex items-center justify-between">
+      <div class="w-10">
+        <img src="./src/assets/logo.webp" alt="">
+      </div>
 
-      <a href="#" class="text-sm font-bold">
-        <span class="text-[#00c9a7]">English</span>
-        <span class="text-white">HunT</span>
-      </a>
 
       <nav class="hidden md:flex items-center gap-7
                   text-xs font-semibold tracking-widest uppercase">
-        <a href="#"        class="nav-active">Home</a>
-        <a href="#about"   class="nav-link">About</a>
+        <a href="#" class="nav-active">Home</a>
+        <a href="#about" class="nav-link">About</a>
         <a href="#courses" class="nav-link">Courses</a>
-        <a href="#tips"    class="nav-link">Resources</a>
+        <a href="#tips" class="nav-link">Resources</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
@@ -49,21 +49,18 @@
     </div>
 
     <!-- mobile menu -->
-    <div id="mobile-menu"
-         class="max-w-5xl mx-auto mt-2 bg-[#131626] border border-[#1e2235]
+    <div id="mobile-menu" class="max-w-5xl mx-auto mt-2 bg-[#131626] border border-[#1e2235]
                 rounded-2xl px-5 py-4 space-y-1 text-sm font-medium text-gray-300">
-      <a href="#"        class="block py-2 hover:text-white">Home</a>
-      <a href="#about"   class="block py-2 hover:text-white">About</a>
+      <a href="#" class="block py-2 hover:text-white">Home</a>
+      <a href="#about" class="block py-2 hover:text-white">About</a>
       <a href="#courses" class="block py-2 hover:text-white">Courses</a>
-      <a href="#tips"    class="block py-2 hover:text-white">Resources</a>
+      <a href="#tips" class="block py-2 hover:text-white">Resources</a>
       <a href="#contact" class="block py-2 hover:text-white">Contact</a>
     </div>
   </header>
 
 
-  <!-- ================================
-       HERO
-       ================================ -->
+ <!-- =================== Hero =================== -->
   <section class="relative overflow-hidden py-24 px-4 text-center">
 
     <div class="hero-glow"></div>
@@ -85,8 +82,7 @@
     </p>
 
     <div class="flex justify-center mb-16 fade-3">
-      <a href="#courses"
-         class="btn-teal relative inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm">
+      <a href="#courses" class=" btn-bg btn-teal relative inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm">
         <span class="new-badge">NEW</span>
         💡 Visit Practice Windows →
       </a>
@@ -502,11 +498,11 @@
       <div>
         <h4 class="text-white text-sm font-semibold mb-4">Quick Links</h4>
         <nav class="space-y-1">
-          <a href="#"        class="footer-link">Home</a>
+          <a href="#" class="footer-link">Home</a>
           <a href="#courses" class="footer-link">Courses</a>
-          <a href="#about"   class="footer-link">About</a>
-          <a href="#"        class="footer-link">AI Panel</a>
-          <a href="#"        class="footer-link">Privacy Policy</a>
+          <a href="#about" class="footer-link">About</a>
+          <a href="#" class="footer-link">AI Panel</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
         </nav>
       </div>
 
@@ -532,7 +528,7 @@
         <h4 class="text-white text-sm font-semibold mb-4">Contact</h4>
         <ul class="space-y-2 text-xs text-gray-500 mb-5">
           <li>📞 01821323330</li>
-          <li> 📧  support@englishhunt.com</li>
+          <li> 📧 support@englishhunt.com</li>
           <li> 🌍 Mirpur 10, Dhaka</li>
         </ul>
         <div class="clock-box" id="clock">00:00:00 AM</div>
@@ -554,8 +550,7 @@
     <!-- bottom bar -->
     <div class="px-4 py-5 max-w-6xl mx-auto
                 flex flex-wrap justify-between items-center gap-2
-                text-xs text-gray-600"
-         style="border-top:1px solid #1e2235;">
+                text-xs text-gray-600" style="border-top:1px solid #1e2235;">
       <span>© 2026 <span class="text-[#f5a623]">English Hunt.</span> All rights reserved.</span>
       <span>Developed by <span class="text-[#00c9a7] font-semibold">Hasib Hasan</span></span>
     </div>
@@ -566,10 +561,10 @@
   <!--clock -->
   <script>
     function tick() {
-      const now  = new Date();
-      let   h    = now.getHours();
-      const m    = String(now.getMinutes()).padStart(2, '0');
-      const s    = String(now.getSeconds()).padStart(2, '0');
+      const now = new Date();
+      let h = now.getHours();
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
       const ampm = h >= 12 ? 'PM' : 'AM';
       h = h % 12 || 12;
       document.getElementById('clock').textContent =
@@ -580,4 +575,5 @@
   </script>
 
 </body>
+
 </html>
