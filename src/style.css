@@ -1,0 +1,280 @@
+/* ============================================
+   src/style.css
+   PostCSS এই ফাইলটা process করে dist/style.css বানাবে
+   npm run dev  → watch mode
+   npm run build → একবার build
+   ============================================ */
+
+@import "tailwindcss";
+
+/* ---- CSS Variables ---- */
+:root {
+  --bg-dark:   #0d0f1a;
+  --bg-card:   #131626;
+  --bg-border: #1e2235;
+  --teal:      #00c9a7;
+  --gold:      #f5a623;
+}
+
+/* ---- Base ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Sora', sans-serif;
+  background: var(--bg-dark);
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Font helpers ---- */
+.font-bn {
+  font-family: 'Hind Siliguri', sans-serif;
+}
+
+/* ---- Navbar ---- */
+.nav-active {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.nav-link {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-link:hover { color: #fff; }
+
+/* settings gear */
+.gear {
+  display: inline-block;
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+.gear:hover { transform: rotate(90deg); }
+
+/* mobile nav — checkbox hack, no JS */
+#nav-toggle  { display: none; }
+#mobile-menu { display: none; }
+#nav-toggle:checked ~ #mobile-menu { display: block; }
+
+/* ---- Buttons ---- */
+.btn-teal {
+  background: linear-gradient(135deg, #00c9a7, #009e85);
+  color: #0d0f1a;
+  font-weight: 700;
+  transition: opacity 0.2s, transform 0.2s;
+  cursor: pointer;
+  display: inline-block;
+}
+.btn-teal:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ---- Cards ---- */
+.dark-card {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-border);
+  border-radius: 14px;
+  transition: border-color 0.25s;
+}
+.dark-card:hover { border-color: rgba(0,201,167,.4); }
+
+.card-teal {
+  background: rgba(0,201,167,.1);
+  border: 1px solid rgba(0,201,167,.3);
+  border-radius: 14px;
+}
+
+.card-lift { transition: transform 0.25s; }
+.card-lift:hover { transform: translateY(-4px); }
+
+/* ---- Badges ---- */
+.badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+.badge-green  { background: rgba(34,197,94,.15);  color: #86efac; }
+.badge-gold   { background: rgba(245,166,35,.15); color: #fcd34d; }
+.badge-purple { background: rgba(99,102,241,.2);  color: #a5b4fc; }
+.badge-teal   { background: rgba(0,201,167,.2);   color: #00c9a7; }
+
+/* ---- Step numbers ---- */
+.step-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+/* ---- Hero glow ---- */
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 60% 40% at 50% 30%,
+    rgba(0,201,167,.07),
+    transparent 70%
+  );
+}
+
+/* ---- NEW badge on CTA ---- */
+.new-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 999px;
+  line-height: 1;
+}
+
+/* ---- Streak badge pulse ---- */
+@keyframes pulse-ring {
+  0%,100% { box-shadow: 0 0 0 0   rgba(245,166,35,.4); }
+  50%      { box-shadow: 0 0 0 8px rgba(245,166,35,0);  }
+}
+.streak-badge { animation: pulse-ring 2s ease infinite; }
+
+/* ---- Hero fade-in animations ---- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+.fade-1 { animation: fadeUp 0.6s ease both; }
+.fade-2 { animation: fadeUp 0.6s 0.15s ease both; }
+.fade-3 { animation: fadeUp 0.6s 0.30s ease both; }
+.fade-4 { animation: fadeUp 0.6s 0.45s ease both; }
+
+/* ---- Progress bars ---- */
+@keyframes fillBar {
+  from { width: 0; }
+}
+
+.progress-track {
+  width: 100%;
+  background: var(--bg-border);
+  border-radius: 999px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.progress-bar { height: 100%; border-radius: 999px; }
+
+.bar-70 { width: 70%; animation: fillBar 1.4s ease forwards; }
+.bar-50 { width: 50%; animation: fillBar 1.4s ease forwards; }
+.bar-35 { width: 35%; animation: fillBar 1.4s ease forwards; }
+.bar-20 { width: 20%; animation: fillBar 1.4s ease forwards; }
+
+/* ---- Streak row ---- */
+.streak-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(245,166,35,.08);
+  border: 1px solid rgba(245,166,35,.25);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+/* ---- CTA section glow ---- */
+.cta-glow {
+  background: radial-gradient(
+    ellipse 70% 50% at 50% 50%,
+    rgba(0,201,167,.06),
+    transparent 70%
+  );
+}
+
+/* ---- Avatar ---- */
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ---- Footer ---- */
+.footer-link {
+  display: block;
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-decoration: none;
+  padding: 2px 0;
+  transition: color 0.2s;
+}
+.footer-link:hover { color: #fff; }
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: transform 0.2s;
+  text-decoration: none;
+}
+.social-icon:hover { transform: scale(1.1); }
+
+.security-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--bg-border);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- Live clock ---- */
+.clock-box {
+  font-family: 'Courier New', monospace;
+  background: var(--bg-card);
+  border: 1px solid var(--teal);
+  color: var(--teal);
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  display: inline-block;
+}
+
+/* ---- Newsletter input ---- */
+.nl-input {
+  background: var(--bg-border);
+  border: 1px solid #2a2f45;
+  color: #e2e8f0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+.nl-input:focus { border-color: var(--teal); }
+.nl-input::placeholder { color: #4a5568; }
